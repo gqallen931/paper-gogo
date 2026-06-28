@@ -1,0 +1,187 @@
+# ═══════════════════════════════════════════════════════════════════════
+# RSN Default Configuration (v3.0 — layered, discipline-aware)
+# ═══════════════════════════════════════════════════════════════════════
+#
+# This config serves a dual role:
+#   1. Backward-compatible config for the RSN / BBD project
+#   2. Template for the universal Phase 7 experiment runner
+#
+# For a NEW project, copy this file and replace:
+#   project.* → your project metadata
+#   data.builder_* → your dataset builder
+#   model.* → your model registry
+#   baselines.list → your baseline models
+#   metrics.* → your evaluation metrics (or use discipline defaults)
+#   phase7.* → your experiment plan
+#
+# ═══════════════════════════════════════════════════════════════════════
+
+# ── 项目元信息（Phase 0 注入，Phase 7 脚本读取）──
+project:
+  name: "RSN"
+  short_name: "RSN"
+  discipline_field: "PHM / Mechanical Engineering"
+  discipline_subfield: "fault_diagnosis"
+  discipline_profile: "phm"          # matches docs/disciplines/phm.yaml
+  task_type: "classification"        # classification | regression | detection | segmentation | generation
+  target_journal: "IEEE TII"
+  repo_url: ""
+  description: "Resonance Scattering Network — physically-inspired time-series classification"
+
+# ── 数据管线配置（Phase 7 通用接口）──
+data:
+  # === 通用接口（Phase 7 脚本通过 importlib 动态加载）===
+  builder_module: "data.dataset"     # Python module
+  builder_fn: "build_bbd_dataset"    # function name in that module
+  builder_kwargs:                    # kwargs passed to builder_fn
+    data_root: "./Data/BBD数据"
+    L: 10000
+    dec_factor: 10
+    stride: 0.5
+  split_fn: "lobo_split"            # function in builder_module
+  split_kwargs:
+    val_blade_idx: 7
+    test_blade_indices: [4, 8]
+  dataloader_fn: "create_dataloaders"
+  dataloader_kwargs:
+    batch_size: 8
+    num_workers: 0
+    use_augmentation: true
+
+  # === RSN 向后兼容字段（现有脚本仍可使用）===
+  bbd_root: "./Data/BBD数据"
+  external_root: "D:/Datasets"
+  segment_length: 10000              # After decimation (0.1s @ 100kHz)
+  decimate_factor: 10                # 1MHz → 100kHz
+  window_stride: 0.5                 # 50% overlap
+  fs_raw: 1000000                    # Original 1MHz
+  fs_effective: 100000               # After decimation
+  bandpass_low: 0.5                  # Hz
+  bandpass_high: 500                 # Hz
+  val_blade_idx: 7                   # Leave-One-Blade-Out index (0-8)
+  test_blade_indices: [4, 8]         # Hold-out test blades
+  num_workers: 4
+
+# ── 模型注册（Phase 7 通用接口 + RSN 向后兼容）──
+model:
+  # === 通用接口（Phase 7 脚本通过 importlib 动态加载）===
+  registry: "models.rsn"             # Python module with create_model()
+  create_fn: "create_model"          # function( model_name, config=... ) -> nn.Module
+  config_class: "RSNConfig"          # config dataclass in that module
+  core_model_name: "RSN"             # name passed to create_fn for core method
+
+  # === RSN 向后兼容字段 ===
+  name: "RSN"
+  K1: 8
+  K2: 16
+  K3: 32
+  M: 2048                            # Kernel truncation length
+  f_min: 0.5
+  f_max: 500.0
+  num_classes: 3
+  dropout: 0.3
+
+# ── Baseline 清单（Phase 5 填充，Phase 7 读取）──
+baselines:
+  factory_module: "baselines.factory"
+  list:
+    - {name: "CNN1D",       module: "baselines.cnn1d",       build_fn: "create_baseline", stub: null}
+    - {name: "ResNet1D",    module: "baselines.resnet1d",    build_fn: "create_baseline", stub: null}
+    - {name: "LSTM",        module: "baselines.lstm",        build_fn: "create_baseline", stub: null}
+    - {name: "STFT_CNN",    module: "baselines.stft_cnn",    build_fn: "create_baseline", stub: null}
+    - {name: "CWT_CNN",     module: "baselines.cwt_cnn",     build_fn: "create_baseline", stub: "CWT_CNN_Stub"}
+    - {name: "WST_SVM",     module: "baselines.wst_svm",     build_fn: "create_baseline", stub: "WST_CNN_Stub"}
+    - {name: "KAN1D",       module: "baselines.kan1d",       build_fn: "create_baseline", stub: "KAN1D_Stub"}
+    - {name: "TCN",         module: "baselines.tcn",         build_fn: "create_baseline", stub: null}
+    - {name: "InceptionTime", module: "baselines.inceptiontime", build_fn: "create_baseline", stub: null}
+    - {name: "DLinear",     module: "baselines.dlinear",     build_fn: "create_baseline", stub: null}
+    - {name: "PatchTST",    module: "baselines.patchtst",    build_fn: "create_baseline", stub: null}
+    - {name: "TimesNet",    module: "baselines.timesnet",    build_fn: "create_baseline", stub: null}
+    - {name: "TiLaTime",    module: "baselines.tilatime",    build_fn: "create_baseline", stub: null}
+    - {name: "Mamba",       module: "baselines.mamba",       build_fn: "create_baseline", stub: null}
+
+# ── 指标配置（Phase 7 读取，可由 discipline profile 覆盖）──
+metrics:
+  primary: "accuracy"
+  secondary: ["f1", "macro_f1", "precision", "recall", "confusion_matrix"]
+  efficiency: ["n_params", "flops_m", "inference_latency_ms"]
+  robustness: ["mean_acc", "std_acc", "cv"]
+  compute_fn: "eval.metrics.compute_metrics"
+  compute_fn_kwargs:
+    task_type: "classification"
+    average: "macro"
+
+# ── 训练超参（领域通用）──
+training:
+  optimizer: "adamw"
+  lr: 0.001
+  weight_decay: 0.0001
+  betas: [0.9, 0.999]
+  scheduler: "cosine_warm_restart"
+  T_0: 20
+  T_mult: 2
+  batch_size: 8
+  epochs: 200
+  early_stop_patience: 30
+  gradient_clip_norm: 1.0
+  use_class_weights: true
+  label_smoothing: 0.05
+
+# ── 多任务损失权重（RSN 特定）──
+multitask:
+  loss_main_weight: 1.0
+  loss_mode_weight: 0.3
+  loss_type_weight: 0.1
+
+# ── 数据增强（RSN 特定）──
+augmentation:
+  gaussian_noise_std: 0.02
+  time_shift_max: 0.05              # Fraction of signal length
+  amplitude_scale_range: [0.9, 1.1]
+  mixup_alpha: 0.2
+
+# ── 日志与持久化 ──
+logging:
+  log_dir: "./logs"
+  checkpoint_dir: "./checkpoints"
+  tensorboard: true
+  wandb: false
+  print_freq: 20
+
+# ── 实验阶段配置（Phase 7 脚本读取，完全数据驱动）──
+phase7:
+  # 通用脚本路径
+  runner_script: "experiments/phase7_full.py"
+
+  # Phase 7A: 基线训练
+  phase7a:
+    models_include_core: true         # 是否在 7A 中包含核心方法
+    epochs: null                      # null = use training.epochs
+
+  # Phase 7B: 消融实验
+  phase7b:
+    core_model: "RSN"                 # create_fn 的第一个参数
+    ablations:
+      - {label: "RSN_Full",       description: "Full RSN (all components)",          overrides: {}}
+      - {label: "RSN_Kreduced",   description: "Reduced K (fewer frequency bins)",   overrides: {model: {K1: 4, K2: 8, K3: 16}}}
+      - {label: "RSN_Mreduced",   description: "Reduced M (smaller hidden dim)",     overrides: {model: {M: 1024}}}
+      - {label: "RSN_nodropout",  description: "No dropout regularization",           overrides: {model: {dropout: 0.0}}}
+
+  # Phase 7C: 鲁棒性 + 效率
+  phase7c:
+    seeds: [1, 2, 3, 4]
+    noise_stds: [0.01, 0.02, 0.05]
+    noise_type: "gaussian"            # gaussian | dropout | missing | shift
+    efficiency_models: ["RSN"]        # which models to measure latency on
+
+  # Phase 7D: 汇总出表
+  phase7d:
+    table_style: "default"            # default | ieee | nature | elsevier
+    columns: ["Model", "Acc", "F1", "MacroF1", "Params(K)", "FLOPs(M)", "Time(s)", "ValBest", "Latency(ms)", "Rank"]
+    markdown_output: "docs/工作流与指南/phase7_最终总表.md"
+    review_output: "docs/工作流与指南/Phase7_审查汇报.md"
+    figure_data_output: "results/phase7_figure_data.json"
+
+# ── 可复现性 ──
+seed: 42
+device: "cuda"

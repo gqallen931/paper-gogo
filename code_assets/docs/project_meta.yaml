@@ -1,0 +1,75 @@
+# ═══════════════════════════════════════════════════════════════════════
+# Project Metadata Template (Phase 0 output)
+# ═══════════════════════════════════════════════════════════════════════
+#
+# This file is auto-generated during Phase 0 and injected into all subsequent
+# phases. Edit values below to match your project.
+#
+# For a NEW project, fill in at minimum:
+#   project.*, discipline.*, task.*, data.sources, innovation.claims
+#
+# ═══════════════════════════════════════════════════════════════════════
+
+# ── 项目标识 ──
+project:
+  name: "YourProjectName"           # Full project name
+  short_name: "YPN"                 # Abbreviation (used in table headers)
+  repo_url: ""                      # Git repo URL
+  description: ""                   # One-paragraph description
+
+# ── 领域信息（匹配 docs/disciplines/ 下的某个 YAML）──
+discipline:
+  field: ""                         # e.g. "Computer Vision"
+  subfield: ""                      # e.g. "image_classification"
+  matched_profile: ""               # e.g. "cv" (matches docs/disciplines/cv.yaml)
+  additional_keywords: []           # Extra keywords for literature search
+
+# ── 任务定义 ──
+task:
+  type: "classification"            # classification | regression | detection | segmentation | generation | forecasting
+  primary_metric: ""                # e.g. "accuracy", "auc_roc", "mAP50-95", "mse"
+  secondary_metrics: []             # e.g. ["f1", "precision", "recall"]
+  efficiency_metrics: []            # e.g. ["n_params", "flops", "inference_time_ms"]
+  eval_protocol: ""                 # Free-text description of evaluation protocol
+  typical_epochs: ""                # e.g. "90-300" or "3-10"
+
+# ── 数据信息 ──
+data:
+  types: []                         # e.g. ["image", "tabular"] or ["time_series"]
+  sources: []                       # Dataset names
+  split_strategy: ""                # e.g. "random_80_20", "predefined", "kfold_5", "lobo"
+  num_classes_or_output_dim: 0      # 0 if N/A
+  notes: ""                         # Access restrictions, preprocessing needs, etc.
+
+# ── 创新点声明 ──
+innovation:
+  type: []                          # e.g. ["new_architecture", "new_loss", "new_training_strategy"]
+  claims: []                        # At least 3 claims, each will get an ablation test
+  # Example:
+  #   - "Novel attention mechanism reduces FLOPs by 50%"
+  #   - "Self-supervised pre-training improves few-shot accuracy by 10%"
+  #   - "Domain-specific data augmentation increases robustness"
+
+# ── Baseline 配置 ──
+baselines:
+  source: "discipline_profile"      # "discipline_profile" | "manual" | "both"
+  count_min: 10                     # Minimum number of baselines (含核心方法 >= 12)
+  custom_list: []                   # Additional user-specified baselines
+
+# ── 目标期刊 ──
+journals:
+  recommended: []                   # Auto-populated from discipline profile
+  user_pref: null                   # User override: "CVPR" / "IEEE TII" / "ACL" / etc.
+
+# ── 约束条件 ──
+constraints:
+  compute_budget: ""                # e.g. "single RTX 3090", "8×A100 cluster"
+  time_budget_days: 30              # Rough timeline for experiments
+  must_baselines: []                # Baseline models that MUST be included
+  must_ablations: []                # Ablation experiments that MUST be run
+
+# ── Phase 0 时间戳（自动填充）──
+phase0:
+  completed: false
+  date: ""
+  reviewed_by: ""
