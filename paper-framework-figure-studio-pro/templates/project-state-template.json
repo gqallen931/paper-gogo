@@ -1,0 +1,513 @@
+{
+  "project_state_schema_version": 1,
+  "skill_name": "paper-framework-figure-studio-pro",
+  "skill_version": "3.1.4a",
+  "project_id": "project-template",
+  "project_title": "Project Template",
+  "created_at": "2026-05-26T07:02:25+00:00",
+  "updated_at": "2026-05-26T07:02:25+00:00",
+  "current_step": "S0-PAPER-FOUNDATION",
+  "workflow_plan": [
+    {
+      "step": "S0-PAPER-FOUNDATION",
+      "mode": "TEXT_ONLY",
+      "purpose": "Build the paper/source foundation, runtime state, canvas defaults, and optional preference-reference scope.",
+      "output_dir": "outputs/S0-paper-foundation",
+      "canonical_output": "outputs/S0-paper-foundation/paper-foundation-report.md",
+      "default_next_step": "S1-FIGURE-STRATEGY",
+      "status": "in_progress"
+    },
+    {
+      "step": "S1-FIGURE-STRATEGY",
+      "mode": "TEXT_ONLY",
+      "purpose": "Diagnose reader question, figure role, narrative structure, and candidate visual directions from the paper foundation.",
+      "output_dir": "outputs/S1-figure-strategy",
+      "canonical_output": "outputs/S1-figure-strategy/figure-strategy-brief.md",
+      "default_next_step": "S2-SKETCH-EXPLORE",
+      "status": "pending"
+    },
+    {
+      "step": "S2-SKETCH-EXPLORE",
+      "mode": "IMAGE_ONLY_PLUS_PROMPT",
+      "purpose": "Generate 6-8 low-fidelity exploration sketches as separate raster images; include at least two paper-close story-driven/storyboard sketches by default, and use them for broad direction discovery.",
+      "output_dir": "outputs/S2-sketch-explore",
+      "canonical_output": "outputs/S2-sketch-explore/sketch-01.png",
+      "default_next_step": "S3-DIRECTION-SELECT",
+      "status": "pending"
+    },
+    {
+      "step": "S3-DIRECTION-SELECT",
+      "mode": "TEXT_ONLY",
+      "purpose": "Select the strongest direction from S2 and define the local refinement target without contradicting source evidence.",
+      "output_dir": "outputs/S3-direction-selection",
+      "canonical_output": "outputs/S3-direction-selection/direction-selection.md",
+      "default_next_step": "S4-CANDIDATE-BRIEF",
+      "status": "pending"
+    },
+    {
+      "step": "S4-CANDIDATE-BRIEF",
+      "mode": "TEXT_ONLY",
+      "purpose": "Prepare the formal candidate matrix: per-candidate title, logic, style-aware caption plan, visible core anchors, arrow/color/icon semantics, and image prompt contract.",
+      "output_dir": "outputs/S4-candidate-brief",
+      "canonical_output": "outputs/S4-candidate-brief/candidate-board-brief.md",
+      "default_next_step": "S5-CANDIDATE-IMAGE",
+      "status": "pending"
+    },
+    {
+      "step": "S5-CANDIDATE-IMAGE",
+      "mode": "IMAGE_ONLY_PLUS_PROMPT",
+      "purpose": "Generate formal paper-framework raster candidate images, defaulting to clean publication schematic style with paper-relevant icons, precise arrows/colors, and figure-caption symbiosis.",
+      "output_dir": "outputs/S5-candidate-images",
+      "canonical_output": "outputs/S5-candidate-images/candidate-01.png",
+      "default_next_step": "S6-FINAL-SELECT",
+      "status": "pending"
+    },
+    {
+      "step": "S6-FINAL-SELECT",
+      "mode": "TEXT_ONLY",
+      "purpose": "Select and display the final image, draft the figure title, caption, legend, body-reference text, and manuscript note, then hand off to S7 for joint audit.",
+      "output_dir": "outputs/S6-final-selection",
+      "canonical_output": "outputs/S6-final-selection/final-selection-report.md",
+      "default_next_step": "S7-FINAL-JOINT-AUDIT",
+      "status": "pending"
+    },
+    {
+      "step": "S7-FINAL-JOINT-AUDIT",
+      "mode": "TEXT_ONLY",
+      "purpose": "Terminal joint audit: evaluate the selected figure and caption/legend/body text together for paper fidelity, model/algorithm/process/math correctness, arrow semantics, color semantics, icon relevance, and final submission readiness.",
+      "output_dir": "outputs/S7-final-joint-audit",
+      "canonical_output": "outputs/S7-final-joint-audit/final-joint-audit.md",
+      "default_next_step": null,
+      "status": "pending"
+    }
+  ],
+  "step_sequence": [
+    "S0-PAPER-FOUNDATION",
+    "S1-FIGURE-STRATEGY",
+    "S2-SKETCH-EXPLORE",
+    "S3-DIRECTION-SELECT",
+    "S4-CANDIDATE-BRIEF",
+    "S5-CANDIDATE-IMAGE",
+    "S6-FINAL-SELECT",
+    "S7-FINAL-JOINT-AUDIT"
+  ],
+  "default_next_step_by_step": {
+    "S0-PAPER-FOUNDATION": "S1-FIGURE-STRATEGY",
+    "S1-FIGURE-STRATEGY": "S2-SKETCH-EXPLORE",
+    "S2-SKETCH-EXPLORE": "S3-DIRECTION-SELECT",
+    "S3-DIRECTION-SELECT": "S4-CANDIDATE-BRIEF",
+    "S4-CANDIDATE-BRIEF": "S5-CANDIDATE-IMAGE",
+    "S5-CANDIDATE-IMAGE": "S6-FINAL-SELECT",
+    "S6-FINAL-SELECT": "S7-FINAL-JOINT-AUDIT",
+    "S7-FINAL-JOINT-AUDIT": null
+  },
+  "step_runs": {
+    "S0-PAPER-FOUNDATION": {
+      "step": "S0-PAPER-FOUNDATION",
+      "epoch": 1,
+      "attempt_id": "s0_paper_foundation-e0001",
+      "status": "in_progress",
+      "output_dir": "outputs/S0-paper-foundation",
+      "started_at": "2026-05-26T07:02:25+00:00",
+      "updated_at": "2026-05-26T07:02:25+00:00"
+    },
+    "S1-FIGURE-STRATEGY": {
+      "step": "S1-FIGURE-STRATEGY",
+      "epoch": 0,
+      "attempt_id": "s1_figure_strategy-e0000",
+      "status": "pending",
+      "output_dir": "outputs/S1-figure-strategy",
+      "started_at": null,
+      "updated_at": "2026-05-26T07:02:25+00:00"
+    },
+    "S2-SKETCH-EXPLORE": {
+      "step": "S2-SKETCH-EXPLORE",
+      "epoch": 0,
+      "attempt_id": "s2_sketch_explore-e0000",
+      "status": "pending",
+      "output_dir": "outputs/S2-sketch-explore",
+      "started_at": null,
+      "updated_at": "2026-05-26T07:02:25+00:00"
+    },
+    "S3-DIRECTION-SELECT": {
+      "step": "S3-DIRECTION-SELECT",
+      "epoch": 0,
+      "attempt_id": "s3_direction_select-e0000",
+      "status": "pending",
+      "output_dir": "outputs/S3-direction-selection",
+      "started_at": null,
+      "updated_at": "2026-05-26T07:02:25+00:00"
+    },
+    "S4-CANDIDATE-BRIEF": {
+      "step": "S4-CANDIDATE-BRIEF",
+      "epoch": 0,
+      "attempt_id": "s4_candidate_brief-e0000",
+      "status": "pending",
+      "output_dir": "outputs/S4-candidate-brief",
+      "started_at": null,
+      "updated_at": "2026-05-26T07:02:25+00:00"
+    },
+    "S5-CANDIDATE-IMAGE": {
+      "step": "S5-CANDIDATE-IMAGE",
+      "epoch": 0,
+      "attempt_id": "s5_candidate_image-e0000",
+      "status": "pending",
+      "output_dir": "outputs/S5-candidate-images",
+      "started_at": null,
+      "updated_at": "2026-05-26T07:02:25+00:00"
+    },
+    "S6-FINAL-SELECT": {
+      "step": "S6-FINAL-SELECT",
+      "epoch": 0,
+      "attempt_id": "s6_final_select-e0000",
+      "status": "pending",
+      "output_dir": "outputs/S6-final-selection",
+      "started_at": null,
+      "updated_at": "2026-05-26T07:02:25+00:00"
+    },
+    "S7-FINAL-JOINT-AUDIT": {
+      "step": "S7-FINAL-JOINT-AUDIT",
+      "epoch": 0,
+      "attempt_id": "s7_final_joint_audit-e0000",
+      "status": "pending",
+      "output_dir": "outputs/S7-final-joint-audit",
+      "started_at": null,
+      "updated_at": "2026-05-26T07:02:25+00:00"
+    }
+  },
+  "output_root": "figure-studio-runs/project-template",
+  "state_file": "state/project-state.json",
+  "path_storage_policy": "all stored paths are project-run relative; host-specific absolute paths are not persisted",
+  "removed_steps_policy": {
+    "status": "active",
+    "removed_after_v3_1_3": "old post-S6 extraction and SVG/PPT delivery steps",
+    "terminal_step": "S7-FINAL-JOINT-AUDIT",
+    "no_old_delivery_chain": true,
+    "rule": "S6 selects/provides the final image and drafts figure text; S7 jointly audits the selected figure plus caption/legend/body text before final submission. The old foreground extraction, SVG/PPT construction, and separate delivery chain are not active."
+  },
+  "target_raster_image_generation_policy": {
+    "status": "hard_required",
+    "rule": "Target-paper sketches and formal candidates must be generated raster images. SVG/HTML/Mermaid/canvas/PPT/PDF/code-drawn substitutes are invalid for S2/S5 target images.",
+    "raster_generation_steps": [
+      "S2-SKETCH-EXPLORE",
+      "S5-CANDIDATE-IMAGE"
+    ],
+    "raster_reference_roles": [
+      "s2.primary_sketch",
+      "s5.primary_candidate",
+      "s6.selected_reference_final"
+    ],
+    "allowed_generated_image_extensions": [
+      ".jpeg",
+      ".jpg",
+      ".png",
+      ".webp"
+    ],
+    "forbidden_target_image_kinds": [
+      "canvas",
+      "html",
+      "mermaid",
+      "pdf",
+      "pptx",
+      "svg"
+    ],
+    "forbidden_target_image_extensions": [
+      ".htm",
+      ".html",
+      ".mmd",
+      ".pdf",
+      ".pptx",
+      ".svg"
+    ],
+    "s6_selected_reference_policy": "S6-FINAL-SELECT must select one S5 generated raster image candidate as the final reference and provide its path/display.",
+    "no_fallback_substitute": "If Image Gen, ChatGPT Create Image, or an approved image API is unavailable, stop and report the limitation instead of fabricating SVG or code-drawn placeholders."
+  },
+  "paper_framework_non_poster_policy": "This skill is only for research-paper framework/architecture/pipeline/mechanism figures. It must not produce posters, marketing visuals, cover art, decorative exhibition boards, or PPT-slide content pages.",
+  "default_canvas_policy": {
+    "default_aspect_ratio": "16:9",
+    "user_editable": true,
+    "first_reply_disclosure_required": true,
+    "applies_to_steps": [
+      "S2-SKETCH-EXPLORE",
+      "S5-CANDIDATE-IMAGE"
+    ],
+    "user_adjustment_examples": [
+      "4:3",
+      "1:1",
+      "3:2",
+      "double-column landscape",
+      "journal-specified size"
+    ],
+    "state_recording_policy": "If the user changes the aspect ratio, record the requested ratio in project state and carry it through later image prompts."
+  },
+  "default_density_policy": "Default figure density is readable and not crowded. Use the image as a cognitive map; move definitions, caveats, dense equations, symbol meanings, and long explanations to the caption/legend/body text that S7 audits together with the figure.",
+  "vector_first_minimal_semantic_policy": {
+    "status": "active",
+    "contract": "references/vector-first-minimal-semantic-rule.md",
+    "one_visual_sentence": true,
+    "default_main_module_range": "3-6",
+    "default_dominant_flow_count": 1,
+    "default_secondary_flow_range": "0-3",
+    "default_formula_policy": "usually 0 visible formulas; include a symbol/formula only with a necessity proof that the core idea cannot be expressed without it",
+    "style_policy": "S5 defaults to clean publication-ready schematic raster references; SVG/PPT approximation is a downstream editability check, not the primary design target, and S5 does not generate SVG.",
+    "figure_caption_split": "Figure and caption are co-designed as one explanatory bundle: the figure carries the cognitive map, while title/caption/legend/body text carries definitions, equation meaning, symbol explanations, constraints, caveats, and long explanations."
+  },
+  "core_submodule_detail_policy": {
+    "status": "active",
+    "contract": "references/core-submodule-detail-policy-v313.md",
+    "rule": "Core innovation modules must not be empty generic boxes when source evidence provides internal mechanism detail.",
+    "display_modes": [
+      "in_place_internal_detail",
+      "side_inset_detail"
+    ],
+    "review_policy": "S3, S6, and S7 downgrade or reject candidates whose core contribution module is visually opaque, whose non-droppable core substeps are absent from the figure-caption bundle, or whose caption is hiding a step that must be visibly anchored in the image."
+  },
+  "math_symbol_anchor_policy": {
+    "status": "active",
+    "rule": "A few mathematical symbols or simple formulas may be visible only when they are necessary self-contained anchors for the core idea or claimed improvement.",
+    "visual_preference": "Prefer arrows, placement, grouping, and compact legends over derivations or dense notation inside the figure; if a symbol is not necessary, omit it."
+  },
+  "figure_caption_codesign_policy": {
+    "status": "active",
+    "contract": "references/figure-caption-codesign-policy-v311.md",
+    "candidate_bundle": "pre-image candidate introduction + candidate image",
+    "pixel_policy": "Title, explanation, legend, method prose, and symbol definitions stay outside image pixels unless a short label is needed for readability.",
+    "s2_card_policy": "Each S2 sketch candidate is introduced before image generation with candidate ID, short figure title, 2-3 sentence explanation draft, symbol/visual legend, a 3-5 short-label image text budget, and story-paper closeness note for story-driven candidates.",
+    "s2_storyboard_requirement": "The first S2 low-fidelity hand-drawn exploration batch must include at least two paper-close story-driven/storyboard candidates by default, unless the user explicitly forbids story-like sketches or the paper is genuinely unsuitable.",
+    "s5_card_policy": "Each S5 formal candidate is introduced in S4 before image generation with figure title, 4-6 sentence explanation draft, style-aware caption plan, symbol/visual legend, in-image text budget, kept-out-of-image notes, claimed improvement visual anchor, symbol/formula necessity proof, and arrow/color/icon semantic contract.",
+    "candidate_text_contract_gate": "hard_required_before_image_generation",
+    "s6_policy": "S6-FINAL-SELECT must provide final image selection plus draft title, caption, legend, body-reference text, and manuscript note; S7 then audits the figure-caption bundle jointly.",
+    "s7_policy": "S7-FINAL-JOINT-AUDIT evaluates the selected image and caption/legend/body text together, not image-only, and may pass, require caption repair, or send the workflow back to S4/S5/S6."
+  },
+  "artifact_role_registry": {
+    "s0.paper_foundation_report": {
+      "step": "S0-PAPER-FOUNDATION",
+      "kind": "markdown",
+      "relative_path": "outputs/S0-paper-foundation/paper-foundation-report.md"
+    },
+    "s1.figure_strategy": {
+      "step": "S1-FIGURE-STRATEGY",
+      "kind": "markdown",
+      "relative_path": "outputs/S1-figure-strategy/figure-strategy-brief.md"
+    },
+    "s2.primary_sketch": {
+      "step": "S2-SKETCH-EXPLORE",
+      "kind": "image",
+      "relative_path": "outputs/S2-sketch-explore/sketch-01.png"
+    },
+    "s3.direction_selection": {
+      "step": "S3-DIRECTION-SELECT",
+      "kind": "markdown",
+      "relative_path": "outputs/S3-direction-selection/direction-selection.md"
+    },
+    "s4.candidate_brief": {
+      "step": "S4-CANDIDATE-BRIEF",
+      "kind": "markdown",
+      "relative_path": "outputs/S4-candidate-brief/candidate-board-brief.md"
+    },
+    "s5.primary_candidate": {
+      "step": "S5-CANDIDATE-IMAGE",
+      "kind": "image",
+      "relative_path": "outputs/S5-candidate-images/candidate-01.png"
+    },
+    "s6.final_selection": {
+      "step": "S6-FINAL-SELECT",
+      "kind": "markdown",
+      "relative_path": "outputs/S6-final-selection/final-selection-report.md"
+    },
+    "s6.selected_reference_final": {
+      "step": "S6-FINAL-SELECT",
+      "kind": "image",
+      "relative_path": "outputs/S5-candidate-images/candidate-01.png"
+    },
+    "s6.figure_text": {
+      "step": "S6-FINAL-SELECT",
+      "kind": "markdown",
+      "relative_path": "outputs/S6-final-selection/figure-text.md"
+    },
+    "s7.final_joint_audit": {
+      "step": "S7-FINAL-JOINT-AUDIT",
+      "kind": "markdown",
+      "relative_path": "outputs/S7-final-joint-audit/final-joint-audit.md"
+    }
+  },
+  "active_artifact_roles": {},
+  "s0_paper_foundation_policy": {
+    "status": "input_depth_sensitive",
+    "contract": "references/paper-deep-reading-contract.md",
+    "output_artifact": "outputs/S0-paper-foundation/paper-foundation-report.md",
+    "must_print_in_reply_body": true,
+    "foundation_status": "required_foundation_for_all_later_steps when source material is available",
+    "simple_description_policy": "If the user only provides a short/simple description, do lightweight scoping and record deep_reading_status as not_triggered_simple_description."
+  },
+  "figure_direction_and_candidate_policy": {
+    "S2": "Generate 6-8 broad low-fidelity sketches, including at least two paper-close story-driven/storyboard sketches by default.",
+    "S5": "Generate up to 8 formal raster candidates, default 6 in a 2x3 matrix; second-round candidates should be formal, clean, paper-faithful, icon-semantically relevant, and readable as figure-caption bundles.",
+    "hand_drawn_boundary": "Hand-drawn/sketch-note/storyboard style is expected in the first S2 low-fidelity exploration batch; at least two story-driven/storyboard sketches are required by default. Any story/metaphor must be close to the paper's own logic and use common concepts that readers can associate with the paper. S5 remains formal unless the user explicitly asks otherwise."
+  },
+  "s6_final_selection_output_policy": {
+    "status": "active",
+    "final_image_required": true,
+    "final_image_source": "one selected S5-CANDIDATE-IMAGE raster candidate",
+    "final_image_path_or_display_required": true,
+    "default_next_step": "S7-FINAL-JOINT-AUDIT",
+    "required_text_sections": [
+      "figure_title",
+      "caption",
+      "legend",
+      "body_reference_sentence",
+      "manuscript_revision_note"
+    ],
+    "completion_rule": "After S6-FINAL-SELECT, proceed to S7-FINAL-JOINT-AUDIT for final figure-caption audit."
+  },
+  "s7_final_joint_audit_policy": {
+    "status": "active",
+    "terminal_step": true,
+    "joint_evaluation_required": true,
+    "minimum_passes": [
+      "paper_fidelity_and_non_contradiction",
+      "model_algorithm_process_math_check",
+      "visual_semantics_check_for_arrows_colors_icons_symbols",
+      "figure_caption_symbiosis_check",
+      "reader_readiness_and_submission_check"
+    ],
+    "pass_rule": "Only mark S7 complete when the selected image plus caption/legend/body-reference text jointly pass all checks with no unresolved semantic error.",
+    "failure_route": "If a problem is found, state whether to repair S6 text, regenerate S5 candidates through S4/S5, or revisit S1/S3 direction logic; do not silently submit a flawed figure."
+  },
+  "preference_reference_root": "inputs/preference-reference-images",
+  "startup_questions": {
+    "runtime_environment": {
+      "status": "pending",
+      "question": "Which runtime will generate images: Codex Image Gen, ChatGPT web Create Image, or another approved image API?"
+    },
+    "preference_reference_diagrams": {
+      "status": "optional",
+      "question": "Do you have reference diagrams for style/category preference? If so, register them before S1 when possible."
+    }
+  },
+  "user_preference_reference_images": [],
+  "user_preference_profile": {
+    "status": "none",
+    "analysis_artifact": "outputs/S0-paper-foundation/preference-reference-analysis.md",
+    "default_s2_sketch_count": 6,
+    "default_s5_candidate_count": 6,
+    "max_total_candidate_count": 8,
+    "style_preference_scope_policy": "Preference references inform S1 figure-type/reader-effect suggestions and do not automatically force S2-S7 style."
+  },
+  "runtime_environment": {
+    "environment": "unknown",
+    "image_generation_route": "unknown",
+    "image_generation_note": "Resolve the image route before image steps.",
+    "runtime_environment_note": "Use text replies plus direct Markdown image embeds for saved atlas boards; generated web pages are not produced."
+  },
+  "atlas_display_policy": {
+    "status": "active",
+    "manifest": "assets/subtype-atlas/manifest.json",
+    "board_root": "assets/subtype-atlas/boards",
+    "board_ids": [
+      "subtype-overview",
+      "visual-grammar-layout",
+      "reader-role-detail",
+      "visual-communication-styles"
+    ],
+    "policy": "Whenever a reply mentions subtype/category atlas boards, layout grammar, visual communication styles, reader-role detail, or subtype overview, embed the corresponding saved PNG board with Markdown. Do not build generated web pages in any environment, including Codex."
+  },
+  "architecture_governance_policy": {
+    "status": "active",
+    "contract": "references/architecture-governance-contract.md",
+    "loose_coupling": "Each stage reads registered artifacts and writes its own output root.",
+    "high_cohesion": "Shared Python helpers live under scripts/figure_studio_core and each command owns one narrow state task.",
+    "layered_on_demand_calls": "Load references only when needed; S0/S1 grounding, S2/S5 image generation, S6 final selection, and S7 final audit stay separate.",
+    "transformation_isolation": "S0 reports, S2 sketches, S5 candidates, S6 selected outputs, and S7 final audit outputs use distinct output roots and artifact roles.",
+    "failure_resume": "state/project-state.json is the resume anchor and is preserved by rewind cleanup.",
+    "abstraction": "Stable constants define workflow, artifact roles, and validation rules.",
+    "memory": "Artifacts, image generation events, cleanup events, and preference references are stored in project state.",
+    "retrievability": "Canonical outputs and artifact roles make generated material discoverable after resume.",
+    "vulnerability_checks": "State validation rejects path traversal, host absolute paths, forbidden target-image substitutes, and secret-like keys."
+  },
+  "step_rewind_cleanup_policy": {
+    "status": "active",
+    "contract": "references/step-rewind-cleanup-contract.md",
+    "backjump_decision_policy": "If a user returns to an earlier or current step and that step will be executed again, cleanup is mandatory.",
+    "delete_target_and_later_step_outputs": "hard_cleanup_for_target_to_from_step_span",
+    "history_reference_policy": "Pure historical questions may be answered without cleanup; execution backjumps clean covered active outputs.",
+    "cleanup_required_when": [
+      "current_step moves back to an earlier step for execution",
+      "the current step is rerun",
+      "S7-FINAL-JOINT-AUDIT is entered again after prior S7 outputs or records exist"
+    ],
+    "hard_cleanup_required_for": "all steps when returning/rerunning for execution",
+    "s7_rerun_cleanup_scope": "delete prior S7 outputs and S7 records only; preserve S0-S6 selected figure and text inputs; record cleanup event before rerunning S7",
+    "state_file_deleted": false,
+    "artifact_record_policy": "remove covered output records from artifacts/image_generation_events/active roles/pending state; keep cleanup_events as the audit record",
+    "cleanup_events": []
+  },
+  "pending_outputs": [
+    {
+      "step": "S0-PAPER-FOUNDATION",
+      "relative_path": "outputs/S0-paper-foundation/paper-foundation-report.md",
+      "artifact_role": "s0.paper_foundation_report"
+    },
+    {
+      "step": "S1-FIGURE-STRATEGY",
+      "relative_path": "outputs/S1-figure-strategy/figure-strategy-brief.md",
+      "artifact_role": "s1.figure_strategy"
+    },
+    {
+      "step": "S2-SKETCH-EXPLORE",
+      "relative_path": "outputs/S2-sketch-explore/sketch-01.png",
+      "artifact_role": "s2.primary_sketch"
+    },
+    {
+      "step": "S3-DIRECTION-SELECT",
+      "relative_path": "outputs/S3-direction-selection/direction-selection.md",
+      "artifact_role": "s3.direction_selection"
+    },
+    {
+      "step": "S4-CANDIDATE-BRIEF",
+      "relative_path": "outputs/S4-candidate-brief/candidate-board-brief.md",
+      "artifact_role": "s4.candidate_brief"
+    },
+    {
+      "step": "S5-CANDIDATE-IMAGE",
+      "relative_path": "outputs/S5-candidate-images/candidate-01.png",
+      "artifact_role": "s5.primary_candidate"
+    },
+    {
+      "step": "S6-FINAL-SELECT",
+      "relative_path": "outputs/S6-final-selection/final-selection-report.md",
+      "artifact_role": "s6.final_selection"
+    },
+    {
+      "step": "S7-FINAL-JOINT-AUDIT",
+      "relative_path": "outputs/S7-final-joint-audit/final-joint-audit.md",
+      "artifact_role": "s7.final_joint_audit"
+    }
+  ],
+  "artifacts": [],
+  "previous_image_only_output_recording_status": "not_applicable",
+  "previous_image_only_plus_prompt_output_recording_status": "not_applicable",
+  "generated_image_default_locations_to_register": [],
+  "image_generation_state_update_status": "not_applicable",
+  "image_output_registration_status": "not_applicable",
+  "image_generation_events": [],
+  "choice_prompt_policy": {
+    "mandatory_after_every_text_reply": true,
+    "required_section_title": "下一步可复制提示词",
+    "must_include_fallback_for_unsure_user": true,
+    "must_end_every_text_reply_with_exact_sentence": true,
+    "final_line_text": "如果不知道如何提问，请说：请使用 paper-framework-figure-studio-pro 根据当前状态只建议下一步提示词，不要自动执行下一步。",
+    "must_show_unsure_user_reminder_in_every_pure_text_reply": true,
+    "choice_prompt_policy_applied": false,
+    "default_option_id": null,
+    "available_option_ids": [],
+    "alternative_prompt_count": 0,
+    "copyable_prompts_provided_for_options": [],
+    "multi_choice_placeholder_prompt_required": true,
+    "placeholder_prompt_template": "请按照 paper-framework-figure-studio-pro skill 的要求，根据当前状态和已登记产物，我选择：<填写心仪方案ID或描述>。请按这个选择进入：<填写下一步stage>。不要执行其他未指定 stage。",
+    "language_policy": "Use Chinese for docs and prompts when the user's main input is Chinese; use English when the user's main input is mainly English."
+  },
+  "text_reply_step_banner_template": "当前流程位置\n全流程：S0-PAPER-FOUNDATION -> S1-FIGURE-STRATEGY -> S2-SKETCH-EXPLORE -> S3-DIRECTION-SELECT -> S4-CANDIDATE-BRIEF -> S5-CANDIDATE-IMAGE -> S6-FINAL-SELECT -> S7-FINAL-JOINT-AUDIT\n当前 step：{current_step}\n默认下一步：{default_next_step}",
+  "last_user_request": null,
+  "notes": []
+}

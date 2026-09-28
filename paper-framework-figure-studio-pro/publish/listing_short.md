@@ -1,0 +1,1 @@
+- v3.1.4a uses a human-in-the-loop S0-PAPER-FOUNDATION -> S7-FINAL-JOINT-AUDIT workflow for paper framework figures. It keeps S2/S5 raster image generation gates, adds figure-caption symbiosis, style-aware captions, paper-relevant icon selection, bounded final joint audit, S7 rerun cleanup, multi-choice placeholder prompts, and explicit stage closure after every step.
