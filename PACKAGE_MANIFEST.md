@@ -1,6 +1,8 @@
 # Package manifest
 
-Package line: `Paper-gogo-v2-private-ready`
+Package line: `Paper-gogo-v2-public`
+
+Published as a public repository: <https://github.com/gqallen931/paper-gogo>
 
 ## Workflow integrity hashes
 

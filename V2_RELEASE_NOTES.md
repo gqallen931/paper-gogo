@@ -14,7 +14,7 @@ This package preserves `paper-workflow-v5.md` as the historical baseline and rep
 - Replaced imitation-oriented writing with author-confirmed claims and non-copying argument-structure analysis.
 - Replaced “AI-removal rate” with language quality and authorial voice checks.
 - Replaced acceptance probabilities with qualitative, evidence-based submission risk.
-- Added private GitHub setup guidance and repository hygiene defaults.
+- Added GitHub setup guidance and repository hygiene defaults; updated for public release.
 
 ## Compatibility
 

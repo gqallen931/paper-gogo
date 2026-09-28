@@ -104,7 +104,7 @@ Paper-gogo/
 
 将整个 `Paper-gogo` 目录复制到所用工具的 skills 目录，并确保入口文件仍为 `SKILL.md`。外部ZIP压缩包不视为已安装技能；只有解压后存在可读取的 `SKILL.md`，工作流才可以调用它。
 
-若上传到 GitHub，建议先创建 Private 仓库，再按 `PRIVATE_REPO_SETUP.md` 操作；公开前必须重新检查数据、稿件、审稿意见、密钥与作者身份信息。
+本包已公开发布在 <https://github.com/gqallen931/paper-gogo>（Public）。发布前的凭据、身份、稿件数据、许可证与编码检查记录在 `PUBLIC_REPO_SETUP.md`；新增内容前须重跑这些检查。
 
 ## 文件说明
 
