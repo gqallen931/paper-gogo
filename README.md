@@ -116,6 +116,8 @@ Paper-gogo/
 | `references/reviewer-checklist.md` | 创新、重要性、证据和写作检查 |
 | `references/phase-skill-routing.md` | Phase主技能、辅助条件、入口门禁和回退 |
 | `code_assets/README.md` | 代码模板说明 |
+| `PUBLIC_REPO_SETUP.md` | 公开发布配置与发布前检查清单 |
+| `THIRD_PARTY_NOTICES.md` | 内置第三方技能的许可证证据与待核实项 |
 
 ## 版本历史
 

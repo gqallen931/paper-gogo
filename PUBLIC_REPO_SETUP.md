@@ -7,12 +7,12 @@ This package is published as a public repository:
 
 ## Pre-publication checklist
 
-Run these checks before publishing content to a public repository. This package passed all of them on the date of its public release.
+Run these checks before publishing content to a public repository. Items 1, 2, 3, and 5 passed on the date of the public release; item 4 is recorded in `THIRD_PARTY_NOTICES.md` and is **not yet complete** for every bundled component.
 
 1. Credential scan: no API keys, tokens, private keys, `.env` files, or credential files.
 2. Identity scan: no author identifiers, personal email addresses, or affiliation leakage beyond public attribution.
 3. Manuscript and data scan: no unpublished manuscripts, reviewer reports, embargoed data, or third-party confidential material.
-4. License review: every bundled third-party skill must permit redistribution. Record the license and upstream source in `THIRD_PARTY_NOTICES.md`.
+4. License review: every bundled third-party skill must permit redistribution. See `THIRD_PARTY_NOTICES.md` — `nature-skills/`, `code-understanding/`, `architecture-engineering/`, `python-expert/`, and `paper-framework-figure-studio-pro/` currently have no license evidence, so redistribution permission is unconfirmed.
 5. Encoding check: all text files must be valid UTF-8 with no mojibake.
 
 ## Publishing updates
