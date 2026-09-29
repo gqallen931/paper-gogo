@@ -33,3 +33,24 @@ This repository bundles third-party skills and assets alongside the Paper-gogo w
 ## Referenced upstream works (not reproduced)
 
 Several bundled documents discuss third-party research, tools, or standards. Ideas, paper titles, journal policies, and citation metadata are referenced for scholarly use and remain the property of their respective authors. No third-party article, video, or dataset is reproduced in this repository.
+
+## Bundled extra skill collections (`extra-skills/`)
+
+`extra-skills/` holds four additional third-party collections that complement the workflow. **Their licenses differ from the workflow's own components.**
+
+| Collection | License | Evidence |
+|---|---|---|
+| `extra-skills/academic-research-skills/` | **CC BY-NC 4.0** | `LICENSE` (Copyright © 2026 Cheng-I Wu), `NOTICE.md`, `CITATION.cff` |
+| `extra-skills/claude-scholar/` | **MIT** | `LICENSE` (Copyright © 2026 Gaorui Zhang) |
+| `extra-skills/paper-craft-skills/` | **MIT** | Stated in upstream `README.upstream.md`; no separate LICENSE file in the upstream archive |
+| `extra-skills/scipilot-figure-skill/` | **MIT** | `LICENSE` bundled with the skill |
+
+### ⚠️ Non-commercial restriction
+
+`extra-skills/academic-research-skills/` is licensed **CC BY-NC 4.0 — NonCommercial**: redistribution with attribution is permitted, **commercial use is not**. This is the only non-commercial component in this repository. Remove that directory if commercial use is required.
+
+Full details, the list of skills per collection, and what was deliberately excluded are in [`extra-skills/THIRD_PARTY_NOTICES.extras.md`](extra-skills/THIRD_PARTY_NOTICES.extras.md).
+
+## Bundled skill inventory
+
+[`SKILLS_INDEX.md`](SKILLS_INDEX.md) is generated from the content actually present and lists every bundled skill with its description. It is regenerated with `npm run build:index` in the plugin project and copied here, so it cannot silently drift from reality.

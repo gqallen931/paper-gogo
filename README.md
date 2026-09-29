@@ -7,7 +7,8 @@
 - **当前工作流**：`paper-workflow-v6.md`（18 Phase）｜历史基线：`paper-workflow-v5.md`
 - **适用范围**：CV / NLP / LLM / KG / Medical AI / PHM / Time Series / RL / Speech / Tabular ML
 - **框架无关**：PyTorch / TensorFlow / JAX / NumPy 均可
-- **包规模**：约 3800 个文件，52 MB（其中 2156 个 SVG 矢量图资产约 30 MB）
+- **内置技能**：**57 个**（工作流技能组 30 个 + 附加合集 27 个），完整清单见 [SKILLS_INDEX.md](SKILLS_INDEX.md)
+- **包规模**：约 4300 个文件，57 MB（其中 2156 个 SVG 矢量图资产约 30 MB）
 
 ## 目录
 
@@ -508,17 +509,30 @@ flowchart TB
 | `python-expert/` | ⚠️ **未核实** | 同上 |
 | `paper-framework-figure-studio-pro/` | ⚠️ **未核实** | 同上 |
 
-### 6.2 原创组件
+### 6.2 附加技能合集（`extra-skills/`）
+
+这四个合集是对工作流的补强，**许可证与上面的技能组不同**：
+
+| 合集 | 许可证 | 技能数 |
+|---|---|---|
+| `extra-skills/academic-research-skills/` | ⚠️ **CC BY-NC 4.0（禁止商业使用）** | 4 |
+| `extra-skills/claude-scholar/` | ✅ **MIT** | 19 |
+| `extra-skills/paper-craft-skills/` | ✅ **MIT**（上游 README 声明） | 3 |
+| `extra-skills/scipilot-figure-skill/` | ✅ **MIT** | 1 |
+
+> `academic-research-skills` 是本仓库中**唯一带非商业限制**的部分：允许署名再分发，但**不得用于商业用途**。若需商用，请删除该目录。详见 [extra-skills/THIRD_PARTY_NOTICES.extras.md](extra-skills/THIRD_PARTY_NOTICES.extras.md)。
+
+### 6.3 原创组件
 
 `SKILL.md`、`paper-workflow-v6.md`、`paper-workflow-v5.md`、`README.md`、`references/`、`code_assets/` 为本包原创。**它们同样没有附许可证**，因此默认保留所有权利。
 
-### 6.3 第三方引用与商标
+### 6.4 第三方引用与商标
 
 内置文档会讨论第三方研究、工具与期刊政策。其中的**观点、论文标题、期刊政策与引用元数据仅作学术引用**，权利归各自作者所有。本仓库**未复制**任何第三方文章、视频或数据集。
 
 `paper-framework-figure-studio-pro` 的设计初衷原文中提及个人姓名，属该技能固定输出文本的一部分。
 
-### 6.4 待办
+### 6.5 待办
 
 若要让本仓库可被安全地再分发（例如允许他人 fork 与商用），需要：
 
@@ -541,6 +555,7 @@ Paper-gogo-v2/
 ├── V2_RELEASE_NOTES.md                   # v2 发布说明
 ├── PUBLIC_REPO_SETUP.md                  # 公开发布配置与发布前检查清单
 ├── THIRD_PARTY_NOTICES.md                # 第三方许可证证据
+├── SKILLS_INDEX.md                       # 内置技能清单（自动生成，共 57 个）
 ├── references/
 │   ├── command-system.md                 # 命令定义与输出规则
 │   ├── reviewer-checklist.md             # 三视角审查与决策逻辑
@@ -552,6 +567,7 @@ Paper-gogo-v2/
 ├── paper-framework-figure-studio-pro/    # 逐回合 S0-S7 框架图工作流
 ├── karpathy-guidelines/                  # 编码护栏（MIT）
 ├── python-expert/                        # Python 实验实现
+├── extra-skills/                         # 附加第三方合集（27 个技能，许可证不同）
 └── code_assets/                          # 可复用实验与项目模板
 ```
 
